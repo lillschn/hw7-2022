@@ -19,9 +19,17 @@ document.querySelector("#play").addEventListener("click", function() {
 	console.log("Video is playing");
 	video.loop = true;
 	console.log("Loop is set to " + video.loop);
+
+	console.log("Setting Volume");
+	volume = document.querySelector("#volume");
+	volume.innerHTML = document.querySelector("#slider").value + "%";
+	// update volume physically
+	video = document.querySelector("#player1");
+	video.volume = document.querySelector("#slider").value / 100;
+	console.log("Volume set to " + volume.innerHTML);
 });
 
-// Step 2 and 7: change volume based on slider and update vol information
+// Step 7: change volume based on slider and update vol information
 document.querySelector("#slider").addEventListener("change", function() {
 	console.log("Volume change");
 	volume = document.querySelector("#volume");
